@@ -22,12 +22,12 @@
 -- My Solution:
 
 WITH activity_rank AS(
-SELECT DATE(sent_at) AS date, user_name, COUNT(DISTINCT message_id) AS message_count
+  SELECT DATE(sent_at) AS date, user_name, COUNT(DISTINCT message_id) AS message_count
   , RANK() OVER(PARTITION BY DATE(sent_at) ORDER BY COUNT(DISTINCT message_id) DESC) AS activity_rank
-FROM npn_users u
-LEFT JOIN npn_messages m
-ON u.user_id=m.sender_id
-GROUP BY DATE(sent_at), user_name
+  FROM npn_users u
+  LEFT JOIN npn_messages m
+  ON u.user_id=m.sender_id
+  GROUP BY DATE(sent_at), user_name
   )
 SELECT date, user_name, message_count
 FROM activity_rank 
