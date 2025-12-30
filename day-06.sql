@@ -19,7 +19,7 @@
 -- My Solution:
 
 WITH annual_snowfall AS
-(SELECT resort_id, resort_name, SUM(snowfall_inches) AS annual_snowfall
+  (SELECT resort_id, resort_name, SUM(snowfall_inches) AS annual_snowfall
   FROM resort_monthly_snowfall
   GROUP BY resort_id, resort_name)
 SELECT *, NTILE(4) OVER(ORDER BY annual_snowfall DESC)
