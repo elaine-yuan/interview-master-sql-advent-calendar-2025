@@ -16,5 +16,5 @@
 
 -- My Solution:
 
-SELECT log_date, stories_shared,  SUM(stories_shared) OVER(ORDER BY log_date) AS running_total_stories
+SELECT log_date, stories_shared, SUM(stories_shared) OVER(ORDER BY log_date) AS running_total_stories
 FROM story_log
