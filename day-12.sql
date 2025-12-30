@@ -1,4 +1,4 @@
--- SQL Advent Calendar - Day 12
+- SQL Advent Calendar - Day 12
 -- Title: North Pole Network Most Active Users
 -- Difficulty: hard
 --
@@ -27,8 +27,7 @@ WITH activity_rank AS(
   FROM npn_users u
   LEFT JOIN npn_messages m
   ON u.user_id=m.sender_id
-  GROUP BY DATE(sent_at), user_name
-  )
+  GROUP BY DATE(sent_at), user_name)
 SELECT date, user_name, message_count
 FROM activity_rank 
 WHERE activity_rank=1
