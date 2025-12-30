@@ -1,6 +1,7 @@
 # SQL Advent Calendar 2025
 
 This repository contains my solutions to Interview Master's 24-day SQL Advent Calendar challenge:
+
 ![1766587243948](https://github.com/user-attachments/assets/1a9b0746-cc64-419b-b6b7-6d06500414ef)
 
 ## About the Challenge
