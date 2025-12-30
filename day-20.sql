@@ -31,11 +31,8 @@
 
 SELECT bs.break_id, cocoa_name, location_name
 FROM  break_schedule bs
-LEFT JOIN cocoa_logs cl
-ON bs.break_id=cl.break_id
-LEFT JOIN cocoa_types ct
-ON cl.cocoa_id=ct.cocoa_id
-LEFT JOIN locations l
-ON bs.location_id=l.location_id
+LEFT JOIN cocoa_logs cl ON bs.break_id=cl.break_id
+LEFT JOIN cocoa_types ct ON cl.cocoa_id=ct.cocoa_id
+LEFT JOIN locations l ON bs.location_id=l.location_id
 WHERE cocoa_name IS NOT NULL
 GROUP BY bs.break_id
