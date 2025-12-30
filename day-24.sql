@@ -19,11 +19,10 @@
 -- My Solution:
 
 WITH completed_goals AS(
-SELECT user_id, user_type, COUNT(DISTINCT goal_id) as completed_goals
-FROM user_goals
-WHERE goal_status="Completed"
-GROUP BY user_id
-  )
+  SELECT user_id, user_type, COUNT(DISTINCT goal_id) as completed_goals
+  FROM user_goals
+  WHERE goal_status="Completed"
+  GROUP BY user_id)
 SELECT user_type, AVG(completed_goals) as avg_completed_goals
 FROM completed_goals
 GROUP BY user_type
