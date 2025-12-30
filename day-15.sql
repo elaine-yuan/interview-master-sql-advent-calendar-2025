@@ -16,11 +16,9 @@
 
 -- My Solution:
 
-WITH mischief_score_comp AS
-(
-SELECT log_date, mischief_score
-, LAG (mischief_score, 1, 0) OVER (ORDER BY log_date) AS prev_mischief_score
-FROM grinch_mischief_log
-)
+WITH mischief_score_comp AS(
+  SELECT log_date, mischief_score
+  , LAG (mischief_score, 1, 0) OVER (ORDER BY log_date) AS prev_mischief_score
+  FROM grinch_mischief_log)
 SELECT log_date, mischief_score-prev_mischief_score AS diff_in_score_from_prev_day
 FROM mischief_score_comp
