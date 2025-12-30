@@ -2,7 +2,7 @@
 
 This repository contains my solutions to Interview Master's 24-day SQL Advent Calendar challenge:
 
-<img width="1912" height="800" alt="sql advent calendar" src="https://github.com/user-attachments/assets/b24ccd01-2586-4cff-8f32-c83438f2af8e" />
+<img width="1896" height="800" alt="sql advent calendar" src="https://github.com/user-attachments/assets/c69d9ba8-66a8-48ca-8060-14f0a9d25dd6" />
 
 ## About the Challenge
 
