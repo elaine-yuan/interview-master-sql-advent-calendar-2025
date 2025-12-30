@@ -18,24 +18,19 @@
 -- My Solution:
 
 WITH first_and_last AS (
-SELECT subject, MIN(quiz_date) AS first_quiz_date, MAX(quiz_date) AS last_quiz_date
-FROM daily_quiz_scores
-GROUP BY subject
-),
+  SELECT subject, MIN(quiz_date) AS first_quiz_date, MAX(quiz_date) AS last_quiz_date
+  FROM daily_quiz_scores
+  GROUP BY subject),
 first_quiz AS (
-SELECT d.subject, d.quiz_date, d.score
-FROM daily_quiz_scores d
-JOIN first_and_last fl
-ON d.subject = fl.subject
-AND d.quiz_date = fl.first_quiz_date
-),
+  SELECT d.subject, d.quiz_date, d.score
+  FROM daily_quiz_scores d
+  JOIN first_and_last fl
+  ON d.subject = fl.subject AND d.quiz_date = fl.first_quiz_date),
 last_quiz AS (
-SELECT d.subject, d.quiz_date, d.score
-FROM daily_quiz_scores d
-JOIN first_and_last fl
-ON d.subject = fl.subject
-AND d.quiz_date = fl.last_quiz_date
-)
+  SELECT d.subject, d.quiz_date, d.score
+  FROM daily_quiz_scores d
+  JOIN first_and_last fl
+  ON d.subject = fl.subject AND d.quiz_date = fl.last_quiz_date)
 SELECT fl.subject, MIN(f.score) AS first_score, MIN(l.score) AS last_score
 FROM first_and_last fl
 LEFT JOIN first_quiz f ON fl.subject = f.subject AND fl.first_quiz_date = f.quiz_date
